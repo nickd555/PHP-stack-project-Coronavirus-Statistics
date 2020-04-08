@@ -43,7 +43,27 @@
       ?>
   	<div>
       <h3> Current Data </h3>
-  		<?php $dataHandler->collectData(); ?>
+      <table border="1">
+        <th>Entry</th>
+        <th>Date</th> 
+        <th>Infections</th>
+        <th>Fatalities</th>
+        <th>FatalityRatio</th>
+    		<?php 
+          $row = $dataHandler->collectData();
+
+          foreach($row as $entry) {
+            echo '<tr>' . 
+              '<td>' . $entry['Entry'] . '</td>' .
+              '<td>' . $entry['Date'] . '</td>' . 
+              '<td>' . $entry['Infections'] . '</td>' . 
+              '<td>' . $entry['Fatalities'] . '</td>' . 
+              '<td>' . ROUND($entry['FatalityRatio'], 2) . '%' . '</td>' .
+              '</tr>';
+            }
+        ?>
+
+      </table>
   	</div>
   </body>
 </html>

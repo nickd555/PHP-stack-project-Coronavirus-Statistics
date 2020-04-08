@@ -39,24 +39,7 @@ class dataHandler
 			array_push($row, $res);
 		}
 
-		echo '<table border="1">';
-		echo '<th>Entry</th>
-		<th>Date</th> 
-		<th>Infections</th>
-		<th>Fatalities</th>
-		<th>FatalityRatio</th>'; 
-
-		foreach($row as $entry) {
-			echo '<tr>' . 
-			'<td>' . $entry['Entry'] . '</td>' .
-			'<td>' . $entry['Date'] . '</td>' . 
-			'<td>' . $entry['Infections'] . '</td>' . 
-			'<td>' . $entry['Fatalities'] . '</td>' . 
-			'<td>' . ROUND($entry['FatalityRatio'], 2) . '%' . '</td>' .
-			'</tr>';
-		}
-
-		echo '</table>';
+		return $row;
 
 	}
 }
